@@ -3,9 +3,12 @@ package com.example.audiobook.feature_audioBook.presentation.components
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -35,6 +38,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -44,12 +48,14 @@ import coil.compose.rememberImagePainter
 import coil.size.OriginalSize
 import com.example.audiobook.R
 
+@OptIn(ExperimentalLayoutApi::class)
 @ExperimentalFoundationApi
 @Composable
 fun BooksDetails(
     cover : String ,
     bookName : String,
     author : String ,
+    catgorires : List<String >,
     description : String,
     onPlay : () -> Unit = {},
     onPause: () -> Unit = {},
@@ -182,6 +188,31 @@ fun BooksDetails(
                         )
                     )
                     Spacer(modifier = Modifier.height(110.dp))
+                }
+
+                item{
+                    FlowRow(maxItemsInEachRow = 2 ) {
+                        catgorires.forEachIndexed { index, category ->
+                            Box(
+                                modifier = Modifier
+                                    .padding(horizontal = 5.dp, vertical = 2.dp)
+                                    .clip(RoundedCornerShape(15.dp))
+                                    .background(Color.Transparent)
+                                    .border(
+                                        1.dp,
+                                        MaterialTheme.colorScheme.primary,
+                                        RoundedCornerShape(15.dp)
+                                    )
+                            ){
+                                Text(
+                                    text = category,
+                                    fontStyle = FontStyle.Italic,
+                                    fontSize = 13.sp,
+                                    color = Color.White
+                                )
+                            }
+                        }
+                    }
                 }
             }
 

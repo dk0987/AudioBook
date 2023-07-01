@@ -145,7 +145,8 @@ fun Home(
                         if (states.chapters.isNotEmpty()){
                             viewModel.play()
                         }
-                    }
+                    },
+                    catgorires = book.category
                 )
 
             }
