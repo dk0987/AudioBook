@@ -75,6 +75,7 @@ dependencies {
     //Compose
     implementation(libs.navigation.compose)
     implementation(libs.toolbar.compose)
+    implementation(libs.material.icons.extended)
 
     //Dagger Hilt
     implementation(libs.hilt.android)

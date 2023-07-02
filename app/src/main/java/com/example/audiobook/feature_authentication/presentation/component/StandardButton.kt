@@ -16,15 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.audiobook.R
 
 @Composable
-fun SignInWithGoogle(
+fun StandardButton(
     onClick : () -> Unit,
     text : String ,
     icon : Painter
@@ -43,7 +41,7 @@ fun SignInWithGoogle(
     ) {
         Image(
             painter = icon,
-            contentDescription = "Google" ,
+            contentDescription = "Icon" ,
             modifier = Modifier
                 .size(30.dp)
                 .padding(2.dp)

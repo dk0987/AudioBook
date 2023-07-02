@@ -1,4 +1,4 @@
-package com.example.audiobook.feature_authentication.presentation.login
+package com.example.audiobook.feature_authentication.presentation.register
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Password
@@ -31,7 +32,8 @@ import com.example.audiobook.feature_authentication.presentation.component.Stand
 import com.example.audiobook.feature_authentication.presentation.component.StandardTextField
 
 @Composable
-fun Login() {
+fun Register() {
+
     LazyColumn(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -39,7 +41,7 @@ fun Login() {
     ){
         item {
             Text(
-                text = "Login".uppercase(),
+                text = "Register".uppercase(),
                 fontSize = 25.sp,
                 fontWeight = FontWeight.Bold,
                 letterSpacing = 1.sp,
@@ -52,6 +54,17 @@ fun Login() {
         }
 
         item {
+
+            StandardTextField(
+                value = "",
+                leadingIcon = Icons.Filled.AccountBox,
+                placeholder = "Enter username" ,
+                onValueChange = {}
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+
             StandardTextField(
                 value = "",
                 leadingIcon = Icons.Filled.Email,
@@ -59,24 +72,35 @@ fun Login() {
                 onValueChange = {}
             )
 
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             StandardTextField(
                 value = "",
-                leadingIcon = Icons.Default.Password,
+                leadingIcon = Icons.Filled.Password,
                 placeholder = "Enter password" ,
                 onValueChange = {},
                 password = true ,
                 keyboardType = KeyboardType.Password
             )
 
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(8.dp))
+
+            StandardTextField(
+                value = "",
+                leadingIcon = Icons.Filled.Password,
+                placeholder = "Re-enter password" ,
+                onValueChange = {},
+                password = true ,
+                keyboardType = KeyboardType.Password
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
 
 
             StandardButton(
                 onClick = { /*TODO*/ },
-                text = "Login",
-                icon = painterResource(id = R.drawable.login)
+                text = "Register",
+                icon = painterResource(id = R.drawable.register)
             )
 
         }
@@ -84,7 +108,7 @@ fun Login() {
     }
 
     Box (
-        modifier = Modifier.fillMaxSize().padding(bottom = 20.dp),
+        modifier = Modifier.fillMaxSize().padding(bottom = 5.dp),
         contentAlignment = Alignment.BottomCenter
     ){
         Row(
@@ -92,14 +116,14 @@ fun Login() {
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Don't have na account?",
+                text = "Already Have An Account ?",
                 fontSize = 15.sp,
                 fontWeight = FontWeight.Normal,
                 letterSpacing = 1.sp,
                 color = Color.White,
             )
             Text(
-                text = "Register",
+                text = "Login In",
                 fontSize = 15.sp,
                 fontWeight = FontWeight.Bold,
                 letterSpacing = 1.sp,
@@ -108,4 +132,5 @@ fun Login() {
         }
 
     }
+    
 }

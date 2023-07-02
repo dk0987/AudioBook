@@ -59,8 +59,8 @@ import com.example.audiobook.core.presentation.component.StandardScaffold
 import com.example.audiobook.core.presentation.ui.theme.AudioBookTheme
 import com.example.audiobook.core.presentation.util.Routes
 import com.example.audiobook.feature_audioBook.presentation.home.Home
-import com.example.audiobook.feature_audioBook.presentation.home.HomeViewModel
-import com.example.audiobook.feature_authentication.presentation.login.Login
+import com.example.audiobook.feature_authentication.presentation.register.Register
+import com.example.audiobook.feature_authentication.presentation.splash.Splash
 import com.example.audiobook.feature_explore.presentation.functionalExplore.FunctionalExplore
 import com.example.audiobook.feature_explore.presentation.nonFunctionalSearch.NonFunctionalExplore
 import com.example.audiobook.feature_favourites.presentation.favourites.Favourites
@@ -196,13 +196,20 @@ class MainActivity : ComponentActivity() {
                                 }
                                 NavHost(
                                     navController = navController,
-                                    startDestination = Routes.Home.screen
+                                    startDestination = Routes.Register.screen
                                 ){
                                     composable(
-                                        route = Routes.Login.screen
+                                        route = Routes.Splash.screen
                                     ){
-                                        Login(navController)
+                                        Splash(navController)
                                     }
+
+                                    composable(
+                                        route = Routes.Register.screen
+                                    ){
+                                        Register()
+                                    }
+
                                     composable(
                                         route = Routes.Home.screen
                                     ){
